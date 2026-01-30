@@ -71,3 +71,6 @@ Failure to comply may result in:
 
 ## 9. Acknowledgment
 By contributing to this project and this repository, all team members agree to follow this Code of Conduct.
+
+## 10. Signatures
+Pavan Kalyan Pittala - Signed

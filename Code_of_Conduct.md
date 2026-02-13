@@ -1,4 +1,3 @@
-
 Team Code of Conduct
 Event Ticket Booking System Project
 

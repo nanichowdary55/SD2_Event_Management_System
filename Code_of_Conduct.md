@@ -78,8 +78,8 @@ All team members commit to this Code of Conduct.
 
 (*Declaration: 
 Ravi Teja Nekkanti - Signed
-Pavan Kalyan Pittala - Signed
-Naseem Sultana - Signed
+Pavan Kalyan Pittala - signed 
+Naseem Sultana - Signed 
 Lokesh Rayala - Signed
 Hussain Tahir - Signed
 *)

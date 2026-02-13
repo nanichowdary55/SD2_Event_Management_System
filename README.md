@@ -1,3 +1,3 @@
 # sd2
 
-This is Event Management project propsal
+This is Event Ticket Booking System project

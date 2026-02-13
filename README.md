@@ -1,4 +1,3 @@
 # sd2
 
-This is program
-hello.
+This is Event Management project propsal

@@ -1,85 +1,157 @@
-Team Code of Conduct
-Event Ticket Booking System Project
-
-Introduction
-This Code of Conduct creates the expectations and duties of our team and the resolving
-conflict process. Everyone on the team will ensure that they keep the standards throughout
-the project life cycle.
-
-Team Commitments
-
-Communication
-- Respond within 24 hours to team messages on a working day.
-- Turn up to all the planned team meetings or give prior notice in case of inability to attend.
-- Keep the team informed of any blockers or delays likely to occur.
-- Always use professional and polite language towards all the team interactions.
-- Communicate to everyone on the team about major decisions or changes.
-
-Quality of Work and Contribution
-- Accomplish all the assigned tasks within the agreed deadlines.
-- Create work of the quality that is set out in the team.
-- Review and give constructive feedback within 48 hours.
-- Create well-written documented code to the agreed-upon style standards.
-- Check code thoroughly prior to reviewing.
-- Share equally in all the processes of the project (design, development, documentation, testing).
-
-Collaboration and Respect
-- Appreciate and listen to the views and ideas of all the team members.
-- Be constructive, give feedback aimed at the work, not at the personal level.
-- Be ready to be corrected and be ready to repeat work.
-- Share information and support struggling team members.
-- Reward group and individual performance.
-- Assume that the intent in any team interaction is positive.
-
-Project Management
-- Keep task board updated on a regular basis (at least twice a week).
-- Commit code often with clear and descriptive messages.
-- Be active in sprint planning and retrospectives.
-- Indicate possible risks or problems immediately when detected.
-- Adhere to an agreed workflow and branching strategy of Git.
-
-Meeting Guidelines
-- Team meetings are scheduled twice a week.
-- Meetings start and end punctually.
-- The meeting facilitator rotates weekly.
-- Every member provides updates on their work.
-- Meeting notes are distributed within 24 hours.
-- Decisions are made by consensus; majority vote if needed.
-
-Resolution Process of Conflicts
+# Team Code of Conduct
+Event Booking System Project
+1. Purpose
+Code of Conduct outlines the expectations, responsibilities and accountability expectations of all team members. It provides professionalism, fairness, transparency, and quality collaboration in the whole lifecycle of project.
+All team members will go by these standards and ensure that they take an active role in ensuring that there is a productive and respectful team environment.
+2. Team Commitments
+A. Communication Standards
+Team success requires effective communication.
+Expectations:
+- Response to team messages within 24 hours during working days.
+- Be present in every scheduled meeting.
+- In case of an absence, inform the team at least 6 hours prior to the meeting, unless in case of an emergency.
+- Communicate to the team regarding blockers, delays, or risks in real-time.
+- Communicate significant decisions or changes to all the members.
+- Always use professional, respectful and constructive language.
+If Communication Fails:
+- For the first time: Group chat friendly reminder.
+- Second time: Private individual talk to get to know about the problem.
+- Third incidence: Dialogue in the team meeting, and recording of concern.
+- Repeated behavior: Escalation to instructor.
+B. Quality of Work & Deadlines
+The individual members are expected to accomplish their given tasks in high quality and within the agreed time limits.
+Expectations:
+- Accomplish tasks within agreed deadlines.
+- Give warning on possible delay to the team at least a day before deadline.
+- Write readable and documented codes that are clean as per the agreed style conventions.
+- Properly test work prior to submitting work.
+- Conductive code reviews within 48hrs.
+- Make an equal contribution on design, development, testing and documentation.
+If a Member Misses a Deadline:
+Case 1: First Missed Deadline
+- The member will explain the reason.
+- Team talks about whether it was because of work, misunderstanding or personal problems.
+- An updated deadline is agreed upon.
+- Support is offered if needed
+Case 2: Recurrent Missed Deadlines
+- There should be an individual conversation.
+- Determine root cause (time management, skills gap, personal constraints)
+- Develop a short term enhancement strategy:
+- Smaller task assignments
+- More frequent check-ins
+o	Pair programming support
+Case 3: Ongoing Failure to Deliver
+- Problem addressed during a team meeting.
+- The reassignment of tasks can be done to avoid project delay.
+- Bias in contribution is registered.
+- Recorded conversation conveyed to the instructor.
+C. Participation & Engagement
+It is required to be actively involved in:
+- Meetings
+- Sprint planning
+- Retrospectives
+- Discussions
+- Reviews
+Expectations:
+- Attend at least 90% of meetings
+- Give progress reports during every meeting.
+- Get involved in the decision-making and discussions.
+- Take part in reviews and team work.
+In the event that a Member is not attending on a regular basis:
+First Stage: Observation & Reminder
+- Friendly check-in message
+- Enquire of them whether they require assistance or explanation.
+Second Stage: One on one discussion
+- Talk about the causes of low engagement.
+- Know whether it is workload or personal or one not understanding.
+- Establish specific participation goals.
+Third Stage: Team Discussion
+- Communicate problem openly in a decent manner.
+- Agree on the targets of participation.
+- Set follow-up timeline (1-2 weeks)
+Final Stage: Escalation
+- If no improvement:
+- Missing meetings and a lack of contribution in the work
+- Report to instructor.
+3. Collaboration & Respect
+Core Principles:
+- Be a respectful listener.
+- Be work oriented and not people oriented.
+- Assume positive intent.
+- Be ready to be corrected and revised.
+- Helping fellow teammates in trouble.
+Unacceptable Behavior:
+- Disrespectful language
+- Personal criticism
+- Disregard of team communication.
+- Withholding information
+- Passive participation
+- Stealing the credit of others.
+Violations will follow the same escalation process mentioned previously.
+4. Work Imbalance Policy and Non-Contribution Policy
+Should one of the members contribute regularly less than others:
+Step 1: Evidence Collection
+- Track missed deadlines
+- Track missed meetings
+- Monitor partial or poor-quality work.
+Step 2: Private Discussion
+- Clarify expectations
+- Set specific criteria of improvement.
+Step 3: Enhancement of Monitoring (1-2 weeks)
+- Weekly progress check
+- Less but well-articulated roles.
+Step 4: Redistribution & Escalation.
+- The redistribution of activities to ensure the success of the project.
+- The teacher indicated persistence of behavior.
+- Peer evaluation as a contribution impact.
+5. Project Management Standards
+- Update the task board weekly.
+- Make clear and descriptive Git commit messages.
+- Make frequent (non-large) commits at the end of the day.
+- Raise possible problems on the spot.
+- Personally participate in sprint retrospectives and planning.
+The accountability process will be used to solve failure to adhere to workflow recurrently.
+6. Meeting Guidelines
+- The meetings are twice in a week.
+- Start and end on time
+- Facilitator rotates weekly
+- Status update is given by every member.
+- There is a clear assignment of action items.
+- Sharing notes of meeting within 24 hours.
+- Consensus decision where appropriate; majority decision where appropriate.
+Being absent on a repeated basis without justifiable cause will lead to the non-participation process.
+7. Conflict Resolution Process
 Step 1: Direct Communication
-Resolve disputes through direct and respectful dialogue.
-
+Problems are discussed politely by the members in a confidential setting.
 Step 2: Team Mediation
-Bring unresolved issues to a team meeting with a facilitator.
+In case not resolved, address during team meeting with facilitator.
+Step 3: Instructor Involvement
+In case it is still unresolved, make an official escalation with information in writing.
+There will be no gossiping, side talks, and passively aggressive actions.
+8. Decision-Making Process
+- Significant decisions - Consensus of the whole team.
+- Minor decisions - Majority vote.
+- Stalemate - Consultation of instructors.
+- All key decisions should be recorded.
+9. Accountability and Fairness Policy
+To ensure fairness:
+- The contributions must be transparent.
+- On-task board, work progress is visible.
+- Peer assessments must show real involvement.
+10. Group Vision on Success
+We aim to:
+- Grow and learn together
+- Professionally and personally nurture each other.
+- Provide a functional quality application that satisfies all the requirements.
+- Have a team culture of accountability, drivenness and reflexivity.
+- Develop the ability to work in teams that is not limited to this project.
+11. Team Agreement
+Everyone in the team is willing to abide by this Code of Conduct and maintain the standards provided in the project lifecycle.
 
-Step 3: Instructor Participation
-Seek guidance from the instructor or TA if unresolved.
 
-Addressing Non-Contribution
-- First incident: One-on-one discussion and encouragement.
-- Second incident: Team meeting and improvement plan.
-- Third incident: Report to instructor.
-
-Decision Making
-- Major decisions require team agreement.
-- Minor decisions can be made by majority vote.
-- If deadlocked, consult instructors.
-
-Group Vision on Success
-- Grow and learn together.
-- Support one another.
-- Deliver a working application that meets requirements.
-- Maintain a driven, reflective team culture.
-
-Team Agreement
-All team members commit to this Code of Conduct.
-*)
-
-(*Declaration: 
+Declaration: 
 Ravi Teja Nekkanti - Signed
 Pavan Kalyan Pittala - signed 
 Naseem Sultana - Signed 
 Lokesh Rayala - Signed
 Hussain Tahir - Signed
-*)

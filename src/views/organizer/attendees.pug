@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/organizer/events") My Events
+        li: a(href="/organizer/events/new") Create Event
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      a(href="/organizer/events").back-link &larr; Back to Dashboard
+      h1 Attendees — #{event.title}
+      hr
+
+      if bookings.length === 0
+        .empty-state No bookings yet for this event.
+      else
+        table.data-table
+          thead
+            tr
+              th Name
+              th Email
+              th Tickets
+              th Booking Ref
+              th Status
+              th Booked At
+          tbody
+            each b in bookings
+              tr
+                td= b.first_name + ' ' + b.last_name
+                td= b.email
+                td= b.quantity
+                td= b.booking_ref
+                td
+                  span(class=`badge ${b.status}`)= b.status.charAt(0).toUpperCase() + b.status.slice(1)
+                td= new Date(b.booked_at).toLocaleDateString('en-GB')

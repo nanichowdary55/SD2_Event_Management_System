@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+  .hero
+    h1 Find Your Next Event
+    form.search-form(action="/events" method="GET")
+      input.search-input(
+        type="text"
+        name="search"
+        placeholder="Search events..."
+        value=search
+      )
+      select.select-input(name="category")
+        option(value="" selected=(category==='')) All Categories
+        option(value="concert"    selected=(category==='concert'))    Concert
+        option(value="conference" selected=(category==='conference')) Conference
+        option(value="sports"     selected=(category==='sports'))     Sports
+        option(value="workshop"   selected=(category==='workshop'))   Workshop
+        option(value="other"      selected=(category==='other'))      Other
+      input.date-input(type="date" name="date" value=date)
+      button(type="submit").btn-primary Search
+
+  if events.length === 0
+    .empty-state
+      p No events found. Try a different search.
+  else
+    .events-grid
+      each event in events
+        .event-card
+          if event.image_url
+            img.event-image(src=event.image_url alt=event.title)
+          else
+            .event-image-placeholder [Event Image]
+          .event-card-body
+            h3.event-title= event.title
+            .event-meta
+              span
+                strong Date:
+                |  #{new Date(event.event_date).toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})}
+              span
+                strong Location:
+                |  #{event.location}
+              span
+                strong Price:
+                |  $#{parseFloat(event.price).toFixed(2)}
+              span
+                strong Tickets left:
+                |  #{event.tickets_remaining}
+            a(href=`/events/${event.id}`).btn-dark View Details

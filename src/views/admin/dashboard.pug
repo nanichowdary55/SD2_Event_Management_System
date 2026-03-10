@@ -1,0 +1,68 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/admin" class="active") Dashboard
+        li: a(href="/admin/users") Manage Users
+        li: a(href="/admin/events") All Events
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 Admin Dashboard
+      hr
+
+      .stats-row
+        .stat-card
+          span.stat-label Total Customers
+          span.stat-value= stats.total_customers
+        .stat-card
+          span.stat-label Total Organizers
+          span.stat-value= stats.total_organizers
+        .stat-card
+          span.stat-label Total Events
+          span.stat-value= stats.total_events
+        .stat-card
+          span.stat-label Confirmed Bookings
+          span.stat-value= parseInt(stats.total_bookings).toLocaleString()
+        .stat-card
+          span.stat-label Platform Revenue
+          span.stat-value $#{parseFloat(stats.total_revenue).toLocaleString('en-US', {minimumFractionDigits:2})}
+
+      h2.section-heading Bookings by Category
+      table.data-table
+        thead
+          tr
+            th Category
+            th Bookings
+            th Revenue
+        tbody
+          each row in categoryBreakdown
+            tr
+              td= row.category.charAt(0).toUpperCase() + row.category.slice(1)
+              td= row.bookings
+              td $#{parseFloat(row.revenue).toFixed(2)}
+
+      .table-header(style="margin-top:28px")
+        h2 Recent Events
+        a(href="/admin/events").btn-dark View All
+      table.data-table
+        thead
+          tr
+            th Event
+            th Organizer
+            th Date
+            th Tickets Sold
+            th Revenue
+        tbody
+          each event in recentEvents
+            tr
+              td= event.title
+              td= event.first_name + ' ' + event.last_name
+              td= new Date(event.event_date).toLocaleDateString('en-GB')
+              td #{event.tickets_sold} / #{event.total_capacity}
+              td $#{parseFloat(event.revenue).toFixed(2)}

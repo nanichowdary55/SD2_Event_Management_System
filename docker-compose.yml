@@ -1,28 +1,51 @@
-version: '3.3'
+version: '3.8'
+
 services:
-  web:
-    build:
-      context: ./
-    volumes:
-      - .:/src
-    command: supervisor -e  'js,pug,html' index.js
+  app:
+    build: .
     ports:
       - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: rootpassword
+      DB_NAME: eventbooking
+      SESSION_SECRET: supersecretkey123
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - uploads_data:/app/src/public/uploads
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: eventbooking
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpassword"]
+      timeout: 10s
+      retries: 10
+      interval: 5s
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
     depends_on:
       - db
-  db:
-    image: mysql
-    restart: always
-    env_file:
-      - ./.env
-    ports:
-      - "3308:3306"
-    volumes:
-      - ./db:/var/lib/mysql
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    restart: always
-    env_file:
-      - ./.env
-    ports:
-      - "8081:80"
+
+volumes:
+  db_data:
+  uploads_data:

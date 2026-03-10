@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/admin") Dashboard
+        li: a(href="/admin/users" class="active") Manage Users
+        li: a(href="/admin/events") All Events
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 Manage Users
+      hr
+
+      table.data-table
+        thead
+          tr
+            th ID
+            th Name
+            th Email
+            th Role
+            th Bookings
+            th Events Created
+            th Joined
+            th Action
+        tbody
+          each u in users
+            tr
+              td= u.id
+              td= u.first_name + ' ' + u.last_name
+              td= u.email
+              td
+                span(class=`badge ${u.role}`)= u.role.charAt(0).toUpperCase() + u.role.slice(1)
+              td= u.booking_count
+              td= u.event_count
+              td= new Date(u.created_at).toLocaleDateString('en-GB')
+              td
+                if u.id !== user.id
+                  form(action=`/admin/users/${u.id}/delete` method="POST" style="display:inline")
+                    button(
+                      type="submit"
+                      onclick="return confirm('Delete user ' + '#{u.first_name}' + '? This will also delete all their bookings and events.')"
+                    ).btn-sm.btn-danger Delete
+                else
+                  span(style="color:#999; font-size:12px") (you)

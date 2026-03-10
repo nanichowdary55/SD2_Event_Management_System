@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .confirmation-wrapper
+    .confirmation-card
+      .check-icon ✓
+      h1 Booking Confirmed!
+      hr
+      .booking-details
+        .detail-row
+          strong Booking Reference:
+          span= booking.booking_ref
+        .detail-row
+          strong Event Name:
+          span= booking.title
+        .detail-row
+          strong Date:
+          span= new Date(booking.event_date).toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})
+        .detail-row
+          strong Tickets Booked:
+          span= booking.quantity
+        .detail-row.total-row
+          strong Total Paid:
+          span $#{parseFloat(booking.total_price).toFixed(2)}
+      .confirmation-actions
+        a(href="/bookings").btn-dark View My Bookings
+        a(href="/events").btn-outline Browse More Events
+      hr
+      p.confirmation-note A confirmation has been saved to your account.

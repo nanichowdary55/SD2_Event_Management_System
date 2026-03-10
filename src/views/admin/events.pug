@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/admin") Dashboard
+        li: a(href="/admin/users") Manage Users
+        li: a(href="/admin/events" class="active") All Events
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 All Events
+      hr
+
+      table.data-table
+        thead
+          tr
+            th Event
+            th Organizer
+            th Category
+            th Date
+            th Capacity
+            th Sold
+            th Revenue
+            th Action
+        tbody
+          each event in events
+            tr
+              td= event.title
+              td= event.first_name + ' ' + event.last_name
+              td= event.category.charAt(0).toUpperCase() + event.category.slice(1)
+              td= new Date(event.event_date).toLocaleDateString('en-GB')
+              td= event.total_capacity
+              td= event.tickets_sold
+              td $#{parseFloat(event.revenue).toFixed(2)}
+              td
+                form(action=`/admin/events/${event.id}/delete` method="POST" style="display:inline")
+                  button(
+                    type="submit"
+                    onclick="return confirm('Delete event: #{event.title}?')"
+                  ).btn-sm.btn-danger Delete

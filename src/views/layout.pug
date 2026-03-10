@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title + ' | EventBook'
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    nav.navbar
+      .navbar-brand
+        a(href="/events") Quantum Coders
+      .navbar-links
+        a(href="/events") Browse Events
+        if user
+          if user.role === 'admin'
+            a(href="/admin") Admin Panel
+          if user.role === 'organizer'
+            a(href="/organizer/events") Dashboard
+          a(href="/bookings") My Bookings
+          form.logout-form(action="/logout" method="POST")
+            button(type="submit").btn-link Logout
+        else
+          a(href="/login").btn-outline Login
+          a(href="/register").btn-primary Register
+
+    main.container
+      block content
+
+    footer.site-footer
+      p &copy; 2026 EventBook — Event Ticket Booking System

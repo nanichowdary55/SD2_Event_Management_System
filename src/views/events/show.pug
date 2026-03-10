@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+  .breadcrumb
+    a(href="/events") Home
+    span  &gt; 
+    a(href="/events") Events
+    span  &gt; 
+    strong= event.title
+
+  .event-detail
+    .event-detail-header
+      h1= event.title
+      span.category-tag= event.category.toUpperCase()
+    .event-detail-meta
+      span
+        strong Date:
+        |  #{new Date(event.event_date).toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})}
+      span
+        strong   Venue:
+        |  #{event.location}
+
+    .event-detail-body
+      .event-description
+        h2 Event Description
+        hr
+        p= event.description
+        h3 Organised by
+        p= event.first_name + ' ' + event.last_name
+
+      .booking-widget
+        h2 Book Tickets
+        hr
+        if event.tickets_remaining <= 0
+          p.sold-out Sold Out
+        else
+          if user
+            form(action="/bookings" method="POST")
+              input(type="hidden" name="event_id" value=event.id)
+              .quantity-row
+                label(for="quantity") Quantity:
+                .quantity-control
+                  input#quantity(
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max=Math.min(10, event.tickets_remaining)
+                    value="1"
+                  )
+              .price-breakdown
+                .price-row
+                  span Price per ticket:
+                  span $#{parseFloat(event.price).toFixed(2)}
+                .price-row.total
+                  strong Total:
+                  strong.total-price $#{parseFloat(event.price).toFixed(2)}
+              .tickets-remaining(class=(event.tickets_remaining < 10 ? 'low-stock' : ''))
+                | #{event.tickets_remaining} tickets remaining
+              button(type="submit").btn-dark.full-width Book Now
+          else
+            p.login-prompt
+              | Please 
+              a(href="/login") login
+              |  to book tickets.
+            a(href="/login").btn-dark.full-width Login to Book

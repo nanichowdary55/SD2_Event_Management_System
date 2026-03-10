@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/organizer/events") My Events
+        li: a(href="/organizer/events/new") Create Event
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 Edit Event
+      hr
+
+      form.event-form(action=`/organizer/events/${event.id}` method="POST" enctype="multipart/form-data")
+        .form-group
+          label(for="title") Event Name
+          input#title(type="text" name="title" value=event.title required)
+
+        .form-group
+          label(for="category") Category
+          select#category(name="category" required)
+            option(value="concert"    selected=(event.category==='concert'))    Concert
+            option(value="conference" selected=(event.category==='conference')) Conference
+            option(value="sports"     selected=(event.category==='sports'))     Sports
+            option(value="workshop"   selected=(event.category==='workshop'))   Workshop
+            option(value="other"      selected=(event.category==='other'))      Other
+
+        .form-group
+          label(for="event_date") Date and Time
+          input#event_date(type="datetime-local" name="event_date" value=new Date(event.event_date).toISOString().slice(0,16) required)
+
+        .form-group
+          label(for="location") Location
+          input#location(type="text" name="location" value=event.location required)
+
+        .form-group
+          label(for="description") Description
+          textarea#description(name="description" rows="5")= event.description
+
+        .form-row
+          .form-group
+            label(for="total_capacity") Capacity
+            input#total_capacity(type="number" name="total_capacity" value=event.total_capacity min=event.tickets_sold required)
+          .form-group
+            label(for="price") Ticket Price ($)
+            input#price(type="number" name="price" value=parseFloat(event.price).toFixed(2) min="0" step="0.01" required)
+
+        .form-group
+          label Current Image
+          if event.image_url
+            img(src=event.image_url alt="current" style="max-height:80px; display:block; margin-bottom:8px; border:1px solid #ccc")
+          else
+            p.form-hint No image uploaded
+          label(for="image") Replace Image (optional)
+          input#image(type="file" name="image" accept="image/*")
+          small.form-hint Leave blank to keep existing image
+
+        hr
+        button(type="submit").btn-dark.full-width Save Changes
+        a(href="/organizer/events").cancel-link Cancel

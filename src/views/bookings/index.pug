@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+  h1 My Bookings
+  hr
+
+  .tabs
+    a(href="/bookings?tab=upcoming" class=(activeTab==='upcoming' ? 'tab active' : 'tab')) Upcoming
+    a(href="/bookings?tab=past"     class=(activeTab==='past'     ? 'tab active' : 'tab')) Past
+
+  if activeTab === 'upcoming'
+    if upcoming.length === 0
+      .empty-state You have no upcoming bookings.
+    else
+      table.bookings-table
+        thead
+          tr
+            th Event Name
+            th Date
+            th Tickets
+            th Booking Ref
+            th Status
+            th Action
+        tbody
+          each b in upcoming
+            tr
+              td= b.title
+              td= new Date(b.event_date).toLocaleDateString('en-GB')
+              td= b.quantity
+              td= b.booking_ref
+              td
+                span.badge.confirmed Confirmed
+              td
+                form(action=`/bookings/${b.id}/cancel` method="POST")
+                  button(type="submit" onclick="return confirm('Cancel this booking?')").btn-cancel Cancel
+
+  else
+    if past.length === 0
+      .empty-state You have no past bookings.
+    else
+      table.bookings-table
+        thead
+          tr
+            th Event Name
+            th Date
+            th Tickets
+            th Booking Ref
+            th Status
+        tbody
+          each b in past
+            tr
+              td= b.title
+              td= new Date(b.event_date).toLocaleDateString('en-GB')
+              td= b.quantity
+              td= b.booking_ref
+              td
+                span(class=`badge ${b.status}`)= b.status.charAt(0).toUpperCase() + b.status.slice(1)

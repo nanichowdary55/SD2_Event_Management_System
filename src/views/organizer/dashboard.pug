@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/organizer/events" class="active") My Events
+        li: a(href="/organizer/events/new") Create Event
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 Organizer Dashboard
+      hr
+
+      .stats-row
+        .stat-card
+          span.stat-label Total Events
+          span.stat-value= stats.total_events
+        .stat-card
+          span.stat-label Tickets Sold
+          span.stat-value= parseInt(stats.total_tickets_sold).toLocaleString()
+        .stat-card
+          span.stat-label Revenue
+          span.stat-value $#{parseFloat(stats.total_revenue).toLocaleString('en-US', {minimumFractionDigits:2})}
+
+      .table-header
+        h2 My Events
+        a(href="/organizer/events/new").btn-dark + Create Event
+
+      if events.length === 0
+        .empty-state You have not created any events yet.
+      else
+        table.data-table
+          thead
+            tr
+              th Event Name
+              th Date
+              th Capacity
+              th Tickets Sold
+              th Revenue
+              th Actions
+          tbody
+            each event in events
+              tr
+                td= event.title
+                td= new Date(event.event_date).toLocaleDateString('en-GB')
+                td= event.total_capacity
+                td #{event.tickets_sold} / #{event.total_capacity}
+                td $#{parseFloat(event.tickets_sold * event.price).toFixed(2)}
+                td.actions
+                  a(href=`/organizer/events/${event.id}/edit`).btn-sm Edit
+                  form(action=`/organizer/events/${event.id}/delete` method="POST" style="display:inline")
+                    button(type="submit" onclick="return confirm('Delete this event?')").btn-sm.btn-danger Delete
+                  a(href=`/organizer/events/${event.id}/attendees`).btn-sm Attendees

@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+  .organizer-layout
+    aside.sidebar
+      ul
+        li: a(href="/organizer/events") My Events
+        li: a(href="/organizer/events/new" class="active") Create Event
+        li: a(href="/events") Browse Events
+        li
+          form(action="/logout" method="POST")
+            button(type="submit").sidebar-logout Logout
+
+    .organizer-main
+      h1 Create New Event
+      hr
+
+      form.event-form(action="/organizer/events" method="POST" enctype="multipart/form-data")
+        .form-group
+          label(for="title") Event Name
+          input#title(type="text" name="title" placeholder="Enter event name" required)
+
+        .form-group
+          label(for="category") Category
+          select#category(name="category" required)
+            option(value="") Select a category
+            option(value="concert")    Concert
+            option(value="conference") Conference
+            option(value="sports")     Sports
+            option(value="workshop")   Workshop
+            option(value="other")      Other
+
+        .form-group
+          label(for="event_date") Date and Time
+          input#event_date(type="datetime-local" name="event_date" required)
+
+        .form-group
+          label(for="location") Location
+          input#location(type="text" name="location" placeholder="Enter venue address" required)
+
+        .form-group
+          label(for="description") Description
+          textarea#description(name="description" rows="5" placeholder="Enter event description")
+
+        .form-row
+          .form-group
+            label(for="total_capacity") Capacity
+            input#total_capacity(type="number" name="total_capacity" min="1" placeholder="0" required)
+          .form-group
+            label(for="price") Ticket Price ($)
+            input#price(type="number" name="price" min="0" step="0.01" placeholder="0.00" required)
+
+        .form-group
+          label(for="image") Event Image (optional)
+          input#image(type="file" name="image" accept="image/*")
+          small.form-hint JPG, PNG or WEBP, max 5MB
+
+        hr
+        button(type="submit").btn-dark.full-width Create Event
+        a(href="/organizer/events").cancel-link Cancel

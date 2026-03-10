@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  .auth-wrapper.wide
+    .auth-grid
+      .auth-card
+        h2 Login
+        hr
+        form(action="/login" method="POST")
+          .form-group
+            label Email
+            input(type="email" name="email" placeholder="your@email.com" required)
+          .form-group
+            label Password
+            input(type="password" name="password" placeholder="••••••••" required)
+          button(type="submit").btn-dark.full-width Login
+          p.forgot Forgot password?
+
+      .auth-card
+        h2 Register
+        hr
+        if error
+          .error-message= error
+        form(action="/register" method="POST")
+          .form-row
+            .form-group
+              label First Name
+              input(type="text" name="first_name" placeholder="John" required)
+            .form-group
+              label Last Name
+              input(type="text" name="last_name" placeholder="Doe" required)
+          .form-group
+            label Email
+            input(type="email" name="email" placeholder="your@email.com" required)
+          .form-group
+            label Password
+            input(type="password" name="password" placeholder="••••••••" required)
+          .form-group
+            label Confirm Password
+            input(type="password" name="confirm_password" placeholder="••••••••" required)
+          .form-group
+            label Role
+            select(name="role" required)
+              option(value="") Select role
+              option(value="customer")  Customer
+              option(value="organizer") Organizer
+          button(type="submit").btn-dark.full-width Register
+    a(href="/events").back-link &larr; Back to Homepage

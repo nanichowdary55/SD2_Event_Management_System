@@ -1,5 +1,5 @@
 # Event Ticket Booking System
-**SD2 Group Project — Team Members:** Ravi Teja Nekkanti | Pavan Kalyan Pittala | Lokesh Rayala | Naseem Sultana | Hussain Tahir
+**SD2 Group Project — Team Members:** Ravi Teja Nekkanti | Pavan Kalyan Pittala | Lokesh Rayala | Naseem Sultana | Hussain Tahir | Badal Narotambhai khunt
 
 ---
 

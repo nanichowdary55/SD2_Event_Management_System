@@ -270,5 +270,5 @@ h1 { font-size: 22px; margin-bottom: 8px; }
   .auth-grid { grid-template-columns: 1fr; }
   .organizer-layout { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: 1fr; }
-  .search-form { flex-direction: column; align-items: stretch; }
+  .search-form { flex-direction: column; align-items: tretch; }
 }

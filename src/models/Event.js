@@ -108,4 +108,4 @@ class Event {
     }
 }
 
-module.exports = vent;
+module.exports = Event;

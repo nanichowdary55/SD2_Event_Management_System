@@ -40,4 +40,4 @@ app.listen(PORT, () => {
     console.log(`Event Booking System running at http://localhost:${PORT}`);
 });
 
-module.exports = pp;
+module.exports = app;

@@ -32,7 +32,7 @@ block content
                 span.badge.confirmed Confirmed
               td
                 form(action=`/bookings/${b.id}/cancel` method="POST")
-                  button(type="submit" onclick="return confirm('Cancel this booking?')").btn-cancel Cancels
+                  button(type="submit" onclick="return confirm('Cancel this booking?')").btn-cancel Cancel
 
   else
     if past.length === 0

@@ -66,4 +66,4 @@ class Admin {
     }
 }
 
-module.exports = Adin;
+module.exports = Admin;

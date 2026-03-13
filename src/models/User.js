@@ -46,4 +46,4 @@ class User {
     }
 }
 
-module.exports = ser;
+module.exports = User;
